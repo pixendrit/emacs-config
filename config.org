@@ -3376,7 +3376,11 @@ post-processing the =latexdiff= result.
 [[xkcd:1319]]
 **** Tweaking defaults
 #+begin_src emacs-lisp
+<<<<<<< HEAD
 (setq org-directory "~/Documents/*.org"                      ; let's put files here
+=======
+(setq org-directory "~/Documents/"                      ; let's put files here
+>>>>>>> origin/master
       org-use-property-inheritance t              ; it's convenient to have properties inherited
       org-log-done 'time                          ; having the time a item is done sounds convenient
       org-list-allow-alphabetical t               ; have a. A. a) A) list bullets
