@@ -542,7 +542,8 @@ markdown                     ; writing docs for people to ignore
 ;;php                        ; perl's insecure younger brother
 ;;plantuml                   ; diagrams for confusing people more
 ;;purescript                 ; javascript, but functional
-(python +lsp +pyright)       ; beautiful is better than ugly
+(python +lsp +pyright
+        +python-django)       ; beautiful is better than ugly
 ;;qt                         ; the 'cutest' gui framework ever
 ;;racket                     ; a DSL for DSLs
 ;;raku                       ; the artist formerly known as perl6
@@ -2432,7 +2433,7 @@ tweaks. Namely:
 #+attr_html: :class invertible :alt Writeroom applied to an Org file
 [[https://tecosaur.com/lfs/emacs-config/screenshots/writeroom-and-org.png]]
 
-*** Treemacs
+*** Tree-macs
 #+begin_quote
 From the =:ui treemacs= module.
 #+end_quote
@@ -3371,25 +3372,11 @@ post-processing the =latexdiff= result.
   (add-to-list 'orgdiff-latexdiff-postprocess-hooks #'+orgdiff-nicer-change-colours))
 #+end_src
 
-***** Org music
-It's nice to be able to link to music
-#+begin_src emacs-lisp
-(package! org-music :recipe (:local-repo "lisp/org-music"))
-#+end_src
-#+begin_src emacs-lisp :tangle yes
-(use-package! org-music
-  :after org
-  :config
-  (setq org-music-mpris-player "Lollypop"
-        org-music-track-search-method 'beets
-        org-music-beets-db "~/Music/library.db"))
-#+end_src
-
 *** Behaviour
 [[xkcd:1319]]
 **** Tweaking defaults
 #+begin_src emacs-lisp
-(setq org-directory "~/Documents/"                      ; let's put files here
+(setq org-directory "~/Documents/*.org"                      ; let's put files here
       org-use-property-inheritance t              ; it's convenient to have properties inherited
       org-log-done 'time                          ; having the time a item is done sounds convenient
       org-list-allow-alphabetical t               ; have a. A. a) A) list bullets
